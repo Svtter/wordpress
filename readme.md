@@ -8,3 +8,9 @@ Setup
 -----
 
 `docker-compose up --build`
+
+
+LICENSE
+-------
+
+GPL
