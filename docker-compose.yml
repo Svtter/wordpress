@@ -1,19 +1,6 @@
 version: '3.3'
 
 services:
-    nginx:
-        build:
-            context: ./services/nginx
-            dockerfile: Dockerfile
-        restart: always
-        ports:
-            - "80:8000"
-            - "443:443"
-        volumes:
-            - ./services/blog/static:/static
-        depends_on:
-            - wordpress
-
     db:
         build:
             context: .
@@ -31,8 +18,8 @@ services:
         depends_on:
             - db
         image: wordpress:latest
-        expose:
-            - "80"
+        ports:
+            - "80:80"
         restart: always
         volumes:
             - ./conf/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
